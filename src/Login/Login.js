@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Login.css';
 import Header from '../Header/Header';
+import Notification from '../Notification/Notification';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [notification, setNotification] = useState({ message: '', color: '', visible: false });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,20 +25,29 @@ const Login = () => {
         body: JSON.stringify(user),
       });
 
-      const data = await response.json();
       if (response.ok) {
-        // Успешный вход
-        alert("Login successful!");
+        setNotification({ message: 'Успешный вход!', color: '#4caf50', visible: true });
         // Здесь вы можете перенаправить пользователя или сохранить токен
       } else {
-        // Ошибка входа
-        alert(`Login failed: ${data.message}`);
+        setNotification({ message: `Неправильный логин/пароль!`, color: '#f44336', visible: true });
       }
     } catch (error) {
       console.error('Error:', error);
-      alert('Login failed: Network error');
+      setNotification({ message: 'Ошибка сети. Повторите позднее...', color: '#f44336', visible: true });
     }
   };
+
+  useEffect(() => {
+    if (notification.visible) {
+      const hideTimer = setTimeout(() => {
+        setNotification({ ...notification, visible: false });
+      }, 7000);
+
+      return () => {
+        clearTimeout(hideTimer);
+      };
+    }
+  }, [notification]);
 
   return (
     <div>
@@ -66,6 +77,13 @@ const Login = () => {
           <p className="login-link">Зарегистрироваться</p>
         </form>
       </div>
+      {notification.visible && (
+        <Notification
+          message={notification.message}
+          color={notification.color}
+          onClose={() => setNotification({ ...notification, visible: false })}
+        />
+      )}
     </div>
   );
 };

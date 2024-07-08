@@ -1,19 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Registration.css';
-import '../Header/Header'
 import Header from '../Header/Header';
+import Notification from '../Notification/Notification';
 
 const Registration = () => {
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [notification, setNotification] = useState({ message: '', color: '', visible: false });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
-      alert("Пароли не совпадают!");
+      setNotification({ message: 'Пароли не совпадают!', color: '#f44336', visible: true });
       return;
     }
 
@@ -32,19 +33,28 @@ const Registration = () => {
         body: JSON.stringify(user),
       });
 
-      const data = await response.json();
       if (response.ok) {
-        // Успешная регистрация
-        alert("Успешно зарегистирован!");
+        setNotification({ message: 'Успешно зарегистрирован!', color: '#4caf50', visible: true });
       } else {
-        // Ошибка регистрации
-        alert(`Ошибка регистрации: ${data.message}`);
+        setNotification({ message: `Ошибка регистрации!`, color: '#f44336', visible: true });
       }
     } catch (error) {
       console.error('Error:', error);
-      alert('Registration failed: Network error');
+      setNotification({ message: 'Ошибка сети. Повторите позднее...', color: '#f44336', visible: true });
     }
   };
+
+  useEffect(() => {
+    if (notification.visible) {
+      const hideTimer = setTimeout(() => {
+        setNotification({ ...notification, visible: false });
+      }, 7000); // Полное скрытие через 7 секунд
+
+      return () => {
+        clearTimeout(hideTimer);
+      };
+    }
+  }, [notification]);
 
   return (
     <div>
@@ -92,6 +102,13 @@ const Registration = () => {
           <p className="login-link">Войти</p>
         </form>
       </div>
+      {notification.visible && (
+        <Notification
+          message={notification.message}
+          color={notification.color}
+          onClose={() => setNotification({ ...notification, visible: false })}
+        />
+      )}
     </div>
   );
 };
