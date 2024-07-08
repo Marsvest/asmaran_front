@@ -4,7 +4,7 @@ import Header from '../Header/Header';
 import Notification from '../Notification/Notification';
 
 const Login = () => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [notification, setNotification] = useState({ message: '', color: '', visible: false });
 
@@ -12,7 +12,7 @@ const Login = () => {
     e.preventDefault();
 
     const user = {
-      username,
+      email,
       password,
     };
 
@@ -57,10 +57,10 @@ const Login = () => {
           <h2>ВХОД</h2>
           <div className="form-group">
             <input
-              type="text"
-              placeholder="Логин"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              type="email"
+              placeholder="E-mail"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>
