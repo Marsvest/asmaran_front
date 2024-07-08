@@ -57,8 +57,8 @@ const Login = () => {
           <h2>ВХОД</h2>
           <div className="form-group">
             <input
-              type="email"
-              placeholder="E-mail"
+              type="text"
+              placeholder="Логин"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
