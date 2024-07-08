@@ -4,7 +4,7 @@ import Header from '../Header/Header';
 import Notification from '../Notification/Notification';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
+  const [username, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [notification, setNotification] = useState({ message: '', color: '', visible: false });
 
@@ -12,7 +12,7 @@ const Login = () => {
     e.preventDefault();
 
     const user = {
-      email,
+      username,
       password,
     };
 
