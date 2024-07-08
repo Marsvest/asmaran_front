@@ -25,7 +25,7 @@ const Registration = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:8000/user/register', {
+      const response = await fetch('http://pybyte.ru/api/user/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
