@@ -13,7 +13,7 @@ const Login = () => {
                         <input type="email" placeholder="E-mail" required />
                     </div>
                     <div className="form-group">
-                        <input type="password" placeholder="Password" required />
+                        <input type="password" placeholder="Пароль" required />
                     </div>
                     <button type="submit">ВОЙТИ</button>
                     <p className="login-link">Зарегистрироваться</p>
