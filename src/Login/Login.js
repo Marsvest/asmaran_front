@@ -4,7 +4,7 @@ import Header from '../Header/Header';
 import Notification from '../Notification/Notification';
 
 const Login = () => {
-  const [username, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [notification, setNotification] = useState({ message: '', color: '', visible: false });
 
@@ -59,8 +59,8 @@ const Login = () => {
             <input
               type="text"
               placeholder="Логин"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
               required
             />
           </div>
