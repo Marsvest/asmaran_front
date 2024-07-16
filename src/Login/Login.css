@@ -2,9 +2,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 43px);
+    height: 100vh;
     background:
-      url('../../public/images/login.png') no-repeat center center;
+      url('login.png') no-repeat center center;
     background-size: cover;
   }
   

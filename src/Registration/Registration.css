@@ -2,8 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 43px);
-  background: url('../../public/images/reg.png') no-repeat center center;
+  height: 100vh;
+  background: url('reg.png') no-repeat center center;
   background-size: cover;
 }
 

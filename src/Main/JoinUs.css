@@ -1,0 +1,41 @@
+.join-us-container {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .join-us-background {
+    /* background-image: url('joinus.png');*/
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .join-us-text {
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+  }
+  
+  .news-button {
+    margin-top: 20px;
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 15px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .news-button:hover {
+    background-color: white;
+    color: black;
+  }

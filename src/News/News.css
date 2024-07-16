@@ -1,0 +1,41 @@
+.news-section {
+    padding: 10px;
+    background-color: #000; /* Черный фон */
+  }
+  
+  .news-section h3 {
+    color: white;
+    margin-bottom: 10px;
+  }
+  
+  .news-items {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .news-item {
+    width: 20%;
+    background-color: #222; /* Темный фон для элементов новостей */
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    margin-left: 3%;
+    margin-right: 3%;
+  }
+  
+  .news-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .news-info {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    color: white;
+  }
+  
+  .news-date, .news-title {
+    margin: 0;
+  }
+  
